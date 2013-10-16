@@ -1,0 +1,59 @@
+import numpy as np
+
+"""
+Programa con todos los metodos y funciones para el procesamiento de manchas solares.
+Autores: Oscar Fernando Garzon-Alejandro Espinosa
+Fecha: JUeves 9 de Octubre de 2013.
+"""
+
+"""
+Programa con todos los metodos y funciones para el procesamiento de los datos del Encefalograma.
+Autores: Oscar Fernando Garzon-Alejandro Espinosa
+Fecha: JUeves 9 de Octubre de 2013.
+"""
+
+def main():
+pass
+    """
+    Deberia leer los datos de las manchas solares observadas.
+    """
+def Load_Data(file):
+    """
+    Carga los datos desde un archivo "file"y los organiza en una matriz.
+    Input: filename.
+    Output: numpy array (MATRIZ) con todos los datos de las manchas solares.
+    """
+    return Matriz
+
+def inter_lin(mat):
+    """
+    Calcula la interpolación lineal de los datos.
+    Input: numpy array con datos de las manchas.
+    Output: la interpolación equiespaciada de los valores.
+    """
+    return rin
+
+def inter_cuad(mat):
+    """
+    Calcula la interpolación cuadratica de los datos.
+    Input: numpy array con datos de las manchas.
+    Output: la interpolación equiespaciada de los valores.
+    """
+    return ren
+
+def inter_cube(mat):
+    """
+    Calcula la interpolación cubica de los datos.
+    Input: numpy array con datos de las manchas.
+    Output: la interpolación equiespaciada de los valores.
+    """
+    return miku
+
+def cal_phantasm(polter):
+    """
+    Calcula y retorna el espectro de potencia para los datos recibidos.
+    Input: interpolacion equiespaciada de valores de manchas solares.
+    Output: El espectro de potencias para los datos recibidos.
+    """
+    return spectre
+    
