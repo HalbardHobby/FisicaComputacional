@@ -4,6 +4,7 @@
 #include "masa.h"
 #define PI 3.14159265358979323846
 
+<<<<<<< HEAD
 int main(int argc, char **argv){
 
   if (argc!=5){
@@ -28,6 +29,18 @@ int main(int argc, char **argv){
   float delta_ang;
   int i;
   float A = C_GRAV * M_CENT;
+=======
+void init();//iniciliza el programa con las 100 masas
+float calc_fuerza(float dist);//calcula la fuerza con base en la distancia 
++void configurar_masa(MASA *estrella, float velang);//configura la masa
++void movimiento(float vx, float vy);//cambia el movimiento de las estrellas con respecto al centro de masa
++void guardar(MASA *estrella, char *filename);//guarda la configuración del movimiento.
+
+int main(int argc, char **argv){
+  
+  /** Definir el vector de condiciones iniciales **/
+  MASA *galaxia=malloc(100*sizeof(MASA));
+>>>>>>> 914abc85aa7d8c9a0cc14e0a8ac56b7993ecbfa0
 
   /** Crear el archivo donde se van escribir los resultados **/
   FILE *archivo;
