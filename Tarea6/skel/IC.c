@@ -26,7 +26,7 @@ int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
 
   /** Crear el archivo donde se van escribir los resultados **/
   FILE *archivo;
-  nombre = "condiciones_iniciales.txt"
+  string nombre = "condiciones_iniciales.txt";
   
 
   /** Escribir las condiciones iniciales para el centro de masa **/
@@ -40,7 +40,7 @@ int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
 
   archivo = fopen(nombre, "w");
   
-  for (int i=0, i<12, i++){
+  for (int i=0, i<12, i+=1){
     x[i] = x_0 + r_1*cos(delta_ang_1*i);
     y[i] = y_0 + r_1*sin(delta_ang_1*i);
     v_x[i] = v_x_0 + sqrt(A/r_1)*cos(delta_ang_1*i);
@@ -121,7 +121,7 @@ int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
     fprintf("%f %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
 
-  fclose(archivo)
+  fclose(archivo);
 
-  return 0;
+ return 0;
 }
