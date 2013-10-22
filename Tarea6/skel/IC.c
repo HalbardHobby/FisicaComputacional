@@ -3,6 +3,7 @@
 #include <math.h>
 #define PI 3.14159265358979323846
 
+<<<<<<< HEAD
 int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
   
   /** Definir los vectores de condiciones iniciales **/
@@ -10,6 +11,13 @@ int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
   float y[120];
   float v_x[120];
   float v_y[120];
+=======
+void init();//iniciliza el programa con las 100 masas
+float calc_fuerza(float dist);//calcula la fuerza con base en la distancia 
+void configurar_masa(MASA *estrella, float velang);//configura la masa
+void movimiento(float vx, float vy);//cambia el movimiento de las estrellas con respecto al centro de masa
+void guardar(MASA *estrella, char *filename);//guarda la configuración del movimiento.
+>>>>>>> 3664b6869daa056b1c4ca37b205db41bd57d7e0c
 
   /** Definir los diferentes radios **/
   int r_1;
@@ -84,6 +92,7 @@ int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
 
     fprintf("%f %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
+<<<<<<< HEAD
 
   fclose(archivo);
 
@@ -133,4 +142,7 @@ int main(float x_0, float y_0, float v_x_0, float v_y_0, float A){
   
 
 
+=======
+  return 0;
+>>>>>>> 3664b6869daa056b1c4ca37b205db41bd57d7e0c
 }
