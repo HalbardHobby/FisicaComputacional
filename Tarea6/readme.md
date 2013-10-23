@@ -4,6 +4,4 @@ Tarea 6 del curso de Física Computacional.
 
 Autores:
 
-Alejandro Espinosa.
-
-Paulina Hoyos Restrepo.
+Alejandro Espinosa y Paulina Hoyos Restrepo.
