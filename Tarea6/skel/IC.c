@@ -92,7 +92,7 @@ int main(int argc, char **argv){
   fclose(archivo);
 
 
-  /** Calcular y escribir las condiciones iniciales para las masas en la tercera órbita **/
+  /** Calcular y escribir las condiciones iniciales para las masas en la cuarta órbita **/
   r= 40;
   delta_ang= (2.0*PI) / 30.0;
 
@@ -110,7 +110,7 @@ int main(int argc, char **argv){
   fclose(archivo);
 
 
-  /** Calcular y escribir las condiciones iniciales para las masas en la tercera órbita **/
+  /** Calcular y escribir las condiciones iniciales para las masas en la quinta órbita **/
   r = 50;
   delta_ang = (2.0*PI) / 36.0;
 
