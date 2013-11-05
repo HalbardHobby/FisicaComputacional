@@ -17,6 +17,10 @@ int main(int argc, char **argv){
 
   //contando las lineas del archivo
   FILE *mapa=fopen(argv[1],'r');
+  if(mapa==0){//mirando que el archivo este bien.
+    printf("Algo malo ocurrio.\n");
+    return -1;
+  }
   char c=0;
   int cont=0;
   while(C!=EOF){
@@ -30,7 +34,7 @@ int main(int argc, char **argv){
   mapa=fopen(argv[1],'r');
   MASA *gal=malloc(cont*sizeof(MASA));
   int i =0
-  for(i;i<cont;i++){
+  for(i;i<cont;i++)
     fscanf(mapa, "%d %f %f %f %f", gal[i]->id, gal[i]->x, gal[i]->y, gal[i]->vx, gal[i]->vy);
 
   return 0;
