@@ -47,8 +47,8 @@ int main(int argc, char **argv){
   for (i=0; i<12; i+=1){
     x[i] = x_0 + r*cos(delta_ang*i);
     y[i] = y_0 + r*sin(delta_ang*i);
-    v_x[i] = v_x_0 + sqrt(A/r)*cos(delta_ang*i);
-    v_y[i] = v_y_0 + sqrt(A/r)*sin(delta_ang*i);
+    v_x[i] = v_x_0 + sqrt(A/r)*sin(delta_ang*i);
+    v_y[i] = v_y_0 + sqrt(A/r)*cos(delta_ang*i);
 
     fprintf(archivo,"%d %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
@@ -65,8 +65,8 @@ int main(int argc, char **argv){
   for (i=12; i<30; i++){
     x[i] = x_0 + r*cos(delta_ang*(i-12));
     y[i] = y_0 + r*sin(delta_ang*(i-12));
-    v_x[i] = v_x_0 + sqrt(A/r)*cos(delta_ang*(i-12));
-    v_y[i] = v_y_0 + sqrt(A/r)*sin(delta_ang*(i-12));
+    v_x[i] = v_x_0 + sqrt(A/r)*sin(delta_ang*(i-12));
+    v_y[i] = v_y_0 + sqrt(A/r)*cos(delta_ang*(i-12));
 
     fprintf(archivo, "%d %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
@@ -83,8 +83,8 @@ int main(int argc, char **argv){
   for (i=30; i<54; i++){
     x[i] = x_0 + r*cos(delta_ang*(i-30));
     y[i] = y_0 + r*sin(delta_ang*(i-30));
-    v_x[i] = v_x_0 + sqrt(A/r)*cos(delta_ang*(i-30));
-    v_y[i] = v_y_0 + sqrt(A/r)*sin(delta_ang*(i-30));
+    v_x[i] = v_x_0 + sqrt(A/r)*sin(delta_ang*(i-30));
+    v_y[i] = v_y_0 + sqrt(A/r)*cos(delta_ang*(i-30));
 
     fprintf(archivo, "%d %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
@@ -101,8 +101,8 @@ int main(int argc, char **argv){
   for (i=54; i<84; i++){
     x[i] = x_0 + r*cos(delta_ang*(i-54));
     y[i] = y_0 + r*sin(delta_ang*(i-54));
-    v_x[i] = v_x_0 + sqrt(A/r)*cos(delta_ang*(i-54));
-    v_y[i] = v_y_0 + sqrt(A/r)*sin(delta_ang*(i-54));
+    v_x[i] = v_x_0 + sqrt(A/r)*sin(delta_ang*(i-54));
+    v_y[i] = v_y_0 + sqrt(A/r)*cos(delta_ang*(i-54));
 
     fprintf(archivo, "%d %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
@@ -119,8 +119,8 @@ int main(int argc, char **argv){
   for (i=84; i<120; i++){
     x[i] = x_0 + r*cos(delta_ang*(i-84));
     y[i] = y_0 + r*sin(delta_ang*(i-84));
-    v_x[i] = v_x_0 + sqrt(A/r)*cos(delta_ang*(i-84));
-    v_y[i] = v_y_0 + sqrt(A/r)*sin(delta_ang*(i-84));
+    v_x[i] = v_x_0 + sqrt(A/r)*sin(delta_ang*(i-84));
+    v_y[i] = v_y_0 + sqrt(A/r)*cos(delta_ang*(i-84));
 
     fprintf(archivo, "%d %f %f %f %f \n", i, x[i], y[i], v_x[i], v_y[i]);
   }
