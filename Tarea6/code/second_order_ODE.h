@@ -1,5 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
+#ifndef SECOND_ORDER_ODE_H
+#define SECOND_ORDER_ODE_H
+
 #include <math.h>
 #include "masa.h"
 
@@ -99,10 +100,4 @@ float* RungeKuttaFourthOrderStep(float h, float t_old, float u_0_old, float u_1_
 
   return array_new;  
 }
-
-int main(){
-
-  
-  
-  return 0;
-}
+#endif

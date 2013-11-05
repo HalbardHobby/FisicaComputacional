@@ -31,7 +31,7 @@ int main(int argc, char **argv){
 
   /** Crear el archivo donde se van escribir los resultados **/
   FILE *archivo;
-  char *nombre = "condiciones_iniciales.txt";
+  char *nombre = "../out/condiciones_iniciales.txt";
   
   /** Escribir las condiciones iniciales para el centro de masa **/
   archivo = fopen(nombre, "w");
