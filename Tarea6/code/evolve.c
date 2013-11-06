@@ -90,7 +90,6 @@ int main(int argc, char **argv){
   }
 
   //imprimiendo en un archivo de texto los valores para el segundo giga_año.
-  FILE *salida;
   salida = fopen("../out/estado2.txt", "w");
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
@@ -113,7 +112,6 @@ int main(int argc, char **argv){
   }
 
   //imprimiendo en un archivo de texto los valores para el tercer giga_año.
-  FILE *salida;
   salida = fopen("../out/estado3.txt", "w");
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
@@ -136,7 +134,6 @@ int main(int argc, char **argv){
   }
 
   //imprimiendo en un archivo de texto los valores para el cuarto giga_año.
-  FILE *salida;
   salida = fopen("../out/estado4.txt", "w");
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
@@ -159,7 +156,6 @@ int main(int argc, char **argv){
   }
 
   //imprimiendo en un archivo de texto los valores para el quinto giga_año.
-  FILE *salida;
   salida = fopen("../out/estado5.txt", "w");
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
