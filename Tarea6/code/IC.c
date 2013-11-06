@@ -14,8 +14,8 @@ int main(int argc, char **argv){
   /** Definir las condiciones del centro de masa **/
   float x_0 = atof(argv[1]);
   float y_0 = atof(argv[2]);
-  float v_x_0 = atof(argv[3]);
-  float v_y_0 = atof(argv[4]);
+  float v_x_0 = atof(argv[3])*(1/0.9785);
+  float v_y_0 = atof(argv[4])*(1/0.9785);
   
   /** Definir los vectores de condiciones iniciales **/
   float x[120];
