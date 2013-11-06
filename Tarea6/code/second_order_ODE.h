@@ -127,7 +127,7 @@ float* RungeKuttaFourthOrderStep(float h, float t_old, float x_old, float y_old,
 
 
   /* Get new t, u_0, u_1 */
-  float array_new[5];
+  float *array_new=malloc(5*sizeof(float));
   array_new[0] = t_old + h;
   array_new[1] = x_old + h*k_average_x;
   array_new[2] = y_old + h*k_average_y;

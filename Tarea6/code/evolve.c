@@ -53,10 +53,10 @@ int main(int argc, char **argv){
   //integrando para el primer giga-año
   int j;
   int k;
-  for(j=0;j<n_ite;j++){
+  for(j=1;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
-    for(k=0;k<cont;k++){
+    for(k=1;k<cont;k++){
       nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
       gal[k].x = nuevo_arreglo[1];
@@ -68,7 +68,7 @@ int main(int argc, char **argv){
 
   //imprimiendo en un archivo de texto los valores para el primer giga_año.
   FILE *salida;
-  salida = fopen("condiciones_primer_gigayear.txt", "w");
+  salida = fopen("../out/condiciones_primer_gigayear.txt", "w");
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
