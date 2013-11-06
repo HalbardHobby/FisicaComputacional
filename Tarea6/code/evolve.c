@@ -77,6 +77,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+    gal[0].x = gal_pas[0].x + (gal_pas[0].vx)*h;
+    gal[0].y = gal_pas[0].y + (gal_pas[0].vy)*h;
     for(k=1;k<cont;k++){
       nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
@@ -100,6 +102,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+    gal[0].x = gal_pas[0].x + (gal_pas[0].vx)*h;
+    gal[0].y = gal_pas[0].y + (gal_pas[0].vy)*h;
     for(k=1;k<cont;k++){
       nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
@@ -122,6 +126,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+    gal[0].x = gal_pas[0].x + (gal_pas[0].vx)*h;
+    gal[0].y = gal_pas[0].y + (gal_pas[0].vy)*h;
     for(k=1;k<cont;k++){
       nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
@@ -144,6 +150,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+    gal[0].x = gal_pas[0].x + (gal_pas[0].vx)*h;
+    gal[0].y = gal_pas[0].y + (gal_pas[0].vy)*h;
     for(k=1;k<cont;k++){
       nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
@@ -166,6 +174,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+    gal[0].x = gal_pas[0].x + (gal_pas[0].vx)*h;
+    gal[0].y = gal_pas[0].y + (gal_pas[0].vy)*h;
     for(k=1;k<cont;k++){
       nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
