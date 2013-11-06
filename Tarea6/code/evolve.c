@@ -38,7 +38,7 @@ int main(int argc, char **argv){
   MASA *gal=malloc(cont*sizeof(MASA));
   int i =0;
   for(i;i<cont;i++)
-    fscanf(mapa, "%d %f %f %f %f %f", &gal[i].id, &gal[i].x, &gal[i].y, &gal[i].vx, &gal[i].vy);
+    fscanf(mapa, "%d %f %f %f %f", &gal[i].id, &gal[i].x, &gal[i].y, &gal[i].vx, &gal[i].vy);
 
   //definiendo otro  arreglo de tipo MASA para guardar los datos del pasado inmediato
   MASA *gal_pas=malloc(cont*sizeof(MASA));
