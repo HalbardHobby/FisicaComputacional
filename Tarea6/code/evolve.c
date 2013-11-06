@@ -213,13 +213,29 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[0].x, gal_pas[0].y, gal_pas[0].vx, gal_pas[0].vy, gal_pas[120].x, gal_pas[120].y);
+    gal[0].x = nuevo_arreglo[1];
+    gal[0].y = nuevo_arreglo[2];
+    gal[0].vx = nuevo_arreglo[3];
+    gal[0].vy = nuevo_arreglo[4];
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
+    gal[120].x = nuevo_arreglo_2[1];
+    gal[120].y = nuevo_arreglo_2[2];
+    gal[120].vx = nuevo_arreglo_2[3];
+    gal[120].vy = nuevo_arreglo_2[4];
+    
+
     for(k=1;k<cont;k++){
-      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
-      t = nuevo_arreglo[0];
-      gal[k].x = nuevo_arreglo[1];
-      gal[k].y = nuevo_arreglo[2];
-      gal[k].vx = nuevo_arreglo[3];
-      gal[k].vy = nuevo_arreglo[4];
+      if(k!=120){
+	nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+	t = nuevo_arreglo[0];
+	gal[k].x = nuevo_arreglo[1];
+	gal[k].y = nuevo_arreglo[2];
+	gal[k].vx = nuevo_arreglo[3];
+	gal[k].vy = nuevo_arreglo[4];
+      }
     }
   }
 
@@ -236,13 +252,28 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[0].x, gal_pas[0].y, gal_pas[0].vx, gal_pas[0].vy, gal_pas[120].x, gal_pas[120].y);
+    gal[0].x = nuevo_arreglo[1];
+    gal[0].y = nuevo_arreglo[2];
+    gal[0].vx = nuevo_arreglo[3];
+    gal[0].vy = nuevo_arreglo[4];
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
+    gal[120].x = nuevo_arreglo_2[1];
+    gal[120].y = nuevo_arreglo_2[2];
+    gal[120].vx = nuevo_arreglo_2[3];
+    gal[120].vy = nuevo_arreglo_2[4];
+
     for(k=1;k<cont;k++){
-      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
-      t = nuevo_arreglo[0];
-      gal[k].x = nuevo_arreglo[1];
-      gal[k].y = nuevo_arreglo[2];
-      gal[k].vx = nuevo_arreglo[3];
-      gal[k].vy = nuevo_arreglo[4];
+      if(k!=120){
+	nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+	t = nuevo_arreglo[0];
+	gal[k].x = nuevo_arreglo[1];
+	gal[k].y = nuevo_arreglo[2];
+	gal[k].vx = nuevo_arreglo[3];
+	gal[k].vy = nuevo_arreglo[4];
+      }
     }
   }
 
@@ -258,13 +289,28 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[0].x, gal_pas[0].y, gal_pas[0].vx, gal_pas[0].vy, gal_pas[120].x, gal_pas[120].y);
+    gal[0].x = nuevo_arreglo[1];
+    gal[0].y = nuevo_arreglo[2];
+    gal[0].vx = nuevo_arreglo[3];
+    gal[0].vy = nuevo_arreglo[4];
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
+    gal[120].x = nuevo_arreglo_2[1];
+    gal[120].y = nuevo_arreglo_2[2];
+    gal[120].vx = nuevo_arreglo_2[3];
+    gal[120].vy = nuevo_arreglo_2[4];
+
     for(k=1;k<cont;k++){
-      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
-      t = nuevo_arreglo[0];
-      gal[k].x = nuevo_arreglo[1];
-      gal[k].y = nuevo_arreglo[2];
-      gal[k].vx = nuevo_arreglo[3];
-      gal[k].vy = nuevo_arreglo[4];
+      if(k!=120){
+	nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+	t = nuevo_arreglo[0];
+	gal[k].x = nuevo_arreglo[1];
+	gal[k].y = nuevo_arreglo[2];
+	gal[k].vx = nuevo_arreglo[3];
+	gal[k].vy = nuevo_arreglo[4];
+      }
     }
   }
 
@@ -280,13 +326,28 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[0].x, gal_pas[0].y, gal_pas[0].vx, gal_pas[0].vy, gal_pas[120].x, gal_pas[120].y);
+    gal[0].x = nuevo_arreglo[1];
+    gal[0].y = nuevo_arreglo[2];
+    gal[0].vx = nuevo_arreglo[3];
+    gal[0].vy = nuevo_arreglo[4];
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
+    gal[120].x = nuevo_arreglo_2[1];
+    gal[120].y = nuevo_arreglo_2[2];
+    gal[120].vx = nuevo_arreglo_2[3];
+    gal[120].vy = nuevo_arreglo_2[4];
+
     for(k=1;k<cont;k++){
-      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
-      t = nuevo_arreglo[0];
-      gal[k].x = nuevo_arreglo[1];
-      gal[k].y = nuevo_arreglo[2];
-      gal[k].vx = nuevo_arreglo[3];
-      gal[k].vy = nuevo_arreglo[4];
+      if(k!=120){
+	nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+	t = nuevo_arreglo[0];
+	gal[k].x = nuevo_arreglo[1];
+	gal[k].y = nuevo_arreglo[2];
+	gal[k].vx = nuevo_arreglo[3];
+	gal[k].vy = nuevo_arreglo[4];
+      }
     }
   }
 
@@ -302,13 +363,28 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[0].x, gal_pas[0].y, gal_pas[0].vx, gal_pas[0].vy, gal_pas[120].x, gal_pas[120].y);
+    gal[0].x = nuevo_arreglo[1];
+    gal[0].y = nuevo_arreglo[2];
+    gal[0].vx = nuevo_arreglo[3];
+    gal[0].vy = nuevo_arreglo[4];
+
+    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
+    gal[120].x = nuevo_arreglo_2[1];
+    gal[120].y = nuevo_arreglo_2[2];
+    gal[120].vx = nuevo_arreglo_2[3];
+    gal[120].vy = nuevo_arreglo_2[4];
+
     for(k=1;k<cont;k++){
-      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
-      t = nuevo_arreglo[0];
-      gal[k].x = nuevo_arreglo[1];
-      gal[k].y = nuevo_arreglo[2];
-      gal[k].vx = nuevo_arreglo[3];
-      gal[k].vy = nuevo_arreglo[4];
+      if(k!=120){
+	nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+	t = nuevo_arreglo[0];
+	gal[k].x = nuevo_arreglo[1];
+	gal[k].y = nuevo_arreglo[2];
+	gal[k].vx = nuevo_arreglo[3];
+	gal[k].vy = nuevo_arreglo[4];
+      }
     }
   }
 
