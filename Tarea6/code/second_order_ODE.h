@@ -58,10 +58,10 @@ float* RungeKuttaFourthOrderStep(float h, float t_old, float x_old, float y_old,
   float k2_vx;
   float k2_vy;
 
-  k2_x = func_x_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_2, x_cm, y_cm);
-  k2_y = func_y_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_2, x_cm, y_cm);
-  k2_vx = func_vx_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_2, x_cm, y_cm);
-  k2_vy = func_vy_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_2, x_cm, y_cm);
+  k2_x = func_x_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_1, x_cm, y_cm);
+  k2_y = func_y_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_1, x_cm, y_cm);
+  k2_vx = func_vx_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_1, x_cm, y_cm);
+  k2_vy = func_vy_prime(t_middle_1, x_middle_1, y_middle_1, vx_middle_1, vy_middle_1, x_cm, y_cm);
 
   /* Move to the middle of the interval using k2 */
   
@@ -127,21 +127,13 @@ float* RungeKuttaFourthOrderStep(float h, float t_old, float x_old, float y_old,
 
 
   /* Get new t, u_0, u_1 */
-
-  float t_new = t_old + h;
-  float x_new = x_old + h*k_average_x;
-  float y_new = y_old + h*k_average_y;
-  float x_new = x_old + h*k_average_x;
-  float y_new = y_old + h*k_average_y;
-  
   float array_new[5];
-  array_new[0] = t_new;
-  array_new[1] = x_new;
-  array_new[2] = y_new;
-  array_new[3] = vx_new;
-  array_new[4] = vy_new;
+  array_new[0] = t_old + h;
+  array_new[1] = x_old + h*k_average_x;
+  array_new[2] = y_old + h*k_average_y;
+  array_new[3] = vx_old + h*k_average_vx;
+  array_new[4] = vy_old + h*k_average_vy;
   
-
   return array_new;  
 }
 #endif

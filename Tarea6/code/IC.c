@@ -24,7 +24,7 @@ int main(int argc, char **argv){
   float v_y[120];
 
   /** Definir los diferentes radios **/
-  int r;
+  int r; // El radio de las masas, en kiloparsecs.
   float delta_ang;
   int i;
   float A = C_GRAV * M_CENT;
@@ -39,7 +39,7 @@ int main(int argc, char **argv){
   fclose(archivo);
 
   /** Calcular y escribir las condiciones iniciales para las masas en la primer órbita **/ 
-  r = 10;
+  r = 10; /
   delta_ang = (2.0*PI) / 12.0;
 
   archivo = fopen(nombre, "a");
