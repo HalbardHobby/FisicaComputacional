@@ -45,12 +45,10 @@ int main(int argc, char **argv){
  
   //definiendo variables necesarias para la integración
   float h = 0.001;
-  float n_ite = int((1.0+h)/h);
+  int n_ite = (1.0+h)/h;
   float t = 0;
   float t_pas=0;
-  float nuevo_arreglo[5];
-  float x_cm;
-  float y_cm;
+  float *nuevo_arreglo;
 
   //integrando para el primer giga-año
   int j;
@@ -59,12 +57,12 @@ int main(int argc, char **argv){
     gal_pas = gal;
     t_pas = t;
     for(k=0;k<cont;k++){
-      nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, &gal_pas[k].x, &gal_pas[k].y, &gal_pas[k].vx, &gal_pas[k].vy, &gal_pas[0].x, &gal_pas[0].y);
+      nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
       t = nuevo_arreglo[0];
-      &gal[k].x = nuevo_arreglo[1];
-      &gal[k].y = nuevo_arreglo[2];
-      &gal[k].vx = nuevo_arreglo[3];
-      &gal[k].vy = nuevo_arreglo[4];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
     }
   }
 
@@ -72,7 +70,7 @@ int main(int argc, char **argv){
   FILE *salida;
   salida = fopen("condiciones_primer_gigayear.txt", "w");
   for(i=0;i<cont;i++){
-    fprintf(salida, "%d %f %f %f %f %f", &gal[i].id, &gal[i].x, &gal[i].y, &gal[i].vx, &gal[i].vy);
+    fprintf(salida, "%d %f %f %f %f %f", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);
 
