@@ -9,8 +9,9 @@ void configurar_masa(MASA *estrella, float velang);//configura la masa
 void movimiento(MASA *gal);//cambia el movimiento de las estrellas con respecto al centro de masa
 void evolve(MASA *estrella);//calcula la posición de la estrella en la siguiente iteración.
 
-const int pos_c1=0;
-const int pos_c2=120;
+void evolucion_una_galaxia(MASA *gal, int cont );
+void evolucion_dos_galaxias(MASA *gal, int cont )
+
 
 int main(int argc, char **argv){
   if(argc != 2){
@@ -40,10 +41,30 @@ int main(int argc, char **argv){
   for(i;i<cont;i++)
     fscanf(mapa, "%d %f %f %f %f", &gal[i].id, &gal[i].x, &gal[i].y, &gal[i].vx, &gal[i].vy);
 
-  //definiendo otro  arreglo de tipo MASA para guardar los datos del pasado inmediato
-  MASA *gal_pas=malloc(cont*sizeof(MASA));
+
+  //definiendo que hacer dependiendo del numero de masas
+  if(cont==120){
+    evolucion_una_galaxia(gal, cont);
+  }
+  else if (cont == 240){
+    evolucion_dos_galaxias(gal, cont);
+  }
+  else{
+    printf("no sé qué pasa!. \n");
+  }
  
-  //definiendo variables necesarias para la integración
+  
+  
+  return 0;
+}
+
+
+void evolucion_una_galaxia(MASA *gal, int cont ){
+
+ //definiendo otro  arreglo de tipo MASA para guardar los datos del pasado inmediato
+  MASA *gal_pas=malloc(cont*sizeof(MASA));
+
+//definiendo variables necesarias para la integración
   float h = 0.001;
   int n_ite = (1.0+h)/h;
   float t = 0;
@@ -160,13 +181,131 @@ int main(int argc, char **argv){
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
-  fclose(salida);
-
-
-  
-  return 0;
+  fclose(salida);  
 }
 
 
+void evolucion_dos_galaxias(MASA *gal, int cont ){
 
-  
+ //definiendo otro  arreglo de tipo MASA para guardar los datos del pasado inmediato
+  MASA *gal_pas=malloc(cont*sizeof(MASA));
+
+//definiendo variables necesarias para la integración
+  float h = 0.001;
+  int n_ite = (1.0+h)/h;
+  float t = 0;
+  float t_pas=0;
+  float *nuevo_arreglo;
+  int j;
+  int k;
+
+  //integrando para el primer giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el primer giga_año.
+  FILE *salida;
+  salida = fopen("../out/2galaxias_estado1.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el segundo giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el segundo giga_año.
+  salida = fopen("../out/2galaxias_estado2.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el tercer giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el tercer giga_año.
+  salida = fopen("../out/2galaxias_estado3.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el cuarto giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el cuarto giga_año.
+  salida = fopen("../out/2galaxias_estado4.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el quinto giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep_2(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y, gal_pas[120].x, gal_pas[120].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el quinto giga_año.
+  salida = fopen("../out/2galaxias_estado5.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);  
+}
