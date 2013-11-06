@@ -85,10 +85,10 @@ float* RungeKuttaFourthOrderStep(float h, float t_old, float x_old, float y_old,
   float k3_vx;
   float k3_vy;
 
-  k3_x = func_prime_x(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
-  k3_y = func_prime_y(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
-  k3_vx = func_prime_x(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
-  k3_vy = func_prime_x(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
+  k3_x = func_x_prime(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
+  k3_y = func_y_prime(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
+  k3_vx = func_vx_prime(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
+  k3_vy = func_vy_prime(t_middle_2, x_middle_2, y_middle_2, vx_middle_2, vy_middle_2, x_cm, y_cm);
 
   /* Move at the end of the interval using k3 */
   

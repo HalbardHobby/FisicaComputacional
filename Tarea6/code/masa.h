@@ -10,10 +10,8 @@ typedef struct masa{//define una masa en el espacio.
   //las posiciones en cada una de las coordenadas.
   float x;
   float y;
-  float z;
   //las velocidades de la masa en cada uno de los ejes.
   float vx;
   float vy;
-  float vz;
 } MASA;
 #endif

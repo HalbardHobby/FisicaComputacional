@@ -14,7 +14,7 @@ const int pos_c2=120;
 
 int main(int argc, char **argv){
   if(argc != 2){
-    printf("Como conquistar la galaxia sin tener idea donde va?");
+    printf("Como conquistar la galaxia sin tener idea donde va?\n");
     return -1;
   }
 
@@ -70,7 +70,7 @@ int main(int argc, char **argv){
   FILE *salida;
   salida = fopen("condiciones_primer_gigayear.txt", "w");
   for(i=0;i<cont;i++){
-    fprintf(salida, "%d %f %f %f %f %f", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);
 
