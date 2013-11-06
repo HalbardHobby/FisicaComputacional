@@ -49,11 +49,11 @@ int main(int argc, char **argv){
   float t = 0;
   float t_pas=0;
   float *nuevo_arreglo;
-
-  //integrando para el primer giga-año
   int j;
   int k;
-  for(j=1;j<n_ite;j++){
+
+  //integrando para el primer giga-año
+  for(j=0;j<n_ite;j++){
     gal_pas = gal;
     t_pas = t;
     for(k=1;k<cont;k++){
@@ -68,7 +68,99 @@ int main(int argc, char **argv){
 
   //imprimiendo en un archivo de texto los valores para el primer giga_año.
   FILE *salida;
-  salida = fopen("../out/condiciones_primer_gigayear.txt", "w");
+  salida = fopen("../out/estado1.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el segundo giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el segundo giga_año.
+  FILE *salida;
+  salida = fopen("../out/estado2.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el tercer giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el tercer giga_año.
+  FILE *salida;
+  salida = fopen("../out/estado3.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el cuarto giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el cuarto giga_año.
+  FILE *salida;
+  salida = fopen("../out/estado4.txt", "w");
+  for(i=0;i<cont;i++){
+    fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
+  }
+  fclose(salida);
+
+
+//integrando para el quinto giga-año
+  for(j=0;j<n_ite;j++){
+    gal_pas = gal;
+    t_pas = t;
+    for(k=1;k<cont;k++){
+      nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[k].x, gal_pas[k].y, gal_pas[k].vx, gal_pas[k].vy, gal_pas[0].x, gal_pas[0].y);
+      t = nuevo_arreglo[0];
+      gal[k].x = nuevo_arreglo[1];
+      gal[k].y = nuevo_arreglo[2];
+      gal[k].vx = nuevo_arreglo[3];
+      gal[k].vy = nuevo_arreglo[4];
+    }
+  }
+
+  //imprimiendo en un archivo de texto los valores para el quinto giga_año.
+  FILE *salida;
+  salida = fopen("../out/estado5.txt", "w");
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
@@ -81,5 +173,4 @@ int main(int argc, char **argv){
 
 
 
-  //integrando para el primer giga-año.
   
