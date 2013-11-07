@@ -1,0 +1,14 @@
+#la piedad nunca esta de mas.
+
+informe: galaxia.o colision.o
+	 ipython notebook /exec/plots.ipynb
+
+galaxia.o: IC.o
+
+colision.o: IC.o
+
+IC.o: IC.com
+      
+
+IC.com: /code/IC.c
+	gcc IC.c -lm -o ../exec/IC.x

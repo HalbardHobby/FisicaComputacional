@@ -3,14 +3,8 @@
 #include "masa.h"
 #include "second_order_ODE.h"
 
-void init();//iniciliza el programa con las 100 masas
-float calc_fuerza(float dist);//calcula la fuerza con base en la distancia 
-void configurar_masa(MASA *estrella, float velang);//configura la masa
-void movimiento(MASA *gal);//cambia el movimiento de las estrellas con respecto al centro de masa
-void evolve(MASA *estrella);//calcula la posición de la estrella en la siguiente iteración.
-
 void evolucion_una_galaxia(MASA *gal, int cont );
-void evolucion_dos_galaxias(MASA *gal, int cont )
+void evolucion_dos_galaxias(MASA *gal, int cont );
 
 
 int main(int argc, char **argv){
@@ -43,10 +37,10 @@ int main(int argc, char **argv){
 
 
   //definiendo que hacer dependiendo del numero de masas
-  if(cont==120){
+  if(cont<=121){
     evolucion_una_galaxia(gal, cont);
   }
-  else if (cont == 240){
+  else if (cont <= 241){
     evolucion_dos_galaxias(gal, cont);
   }
   else{
@@ -92,7 +86,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
   //imprimiendo en un archivo de texto los valores para el primer giga_año.
   FILE *salida;
   salida = fopen("../out/estado1.txt", "w");
-  for(i=0;i<cont;i++){
+  int i=0;
+  for(i;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);
@@ -116,6 +111,9 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
 
   //imprimiendo en un archivo de texto los valores para el segundo giga_año.
   salida = fopen("../out/estado2.txt", "w");
+  //gal[0].x+=gal[0].vx;
+  //gal[0].y+=gal[0].vy;
+  fprintf(salida, "-1 %f %f %f %f\n", gal[0].x, gal[0].y, gal[0].vx, gal[0].vy);
   for(i=0;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
@@ -140,7 +138,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
 
   //imprimiendo en un archivo de texto los valores para el tercer giga_año.
   salida = fopen("../out/estado3.txt", "w");
-  for(i=0;i<cont;i++){
+  fprintf(salida, "-1 %f %f %f %f\n", gal[0].x, gal[0].y, gal[0].vx, gal[0].vy);
+  for(i=1;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);
@@ -164,7 +163,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
 
   //imprimiendo en un archivo de texto los valores para el cuarto giga_año.
   salida = fopen("../out/estado4.txt", "w");
-  for(i=0;i<cont;i++){
+  fprintf(salida, "-1 %f %f %f %f\n", gal[0].x, gal[0].y, gal[0].vx, gal[0].vy);
+  for(i=1;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);
@@ -188,7 +188,8 @@ void evolucion_una_galaxia(MASA *gal, int cont ){
 
   //imprimiendo en un archivo de texto los valores para el quinto giga_año.
   salida = fopen("../out/estado5.txt", "w");
-  for(i=0;i<cont;i++){
+  fprintf(salida, "-1 %f %f %f %f\n", gal[0].x, gal[0].y, gal[0].vx, gal[0].vy);
+  for(i=1;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);  
@@ -206,6 +207,7 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   float t = 0;
   float t_pas=0;
   float *nuevo_arreglo;
+  float *nuevo_arreglo_2;
   int j;
   int k;
 
@@ -220,7 +222,7 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
     gal[0].vx = nuevo_arreglo[3];
     gal[0].vy = nuevo_arreglo[4];
 
-    nuevo_arreglo = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
+    nuevo_arreglo_2 = RungeKuttaFourthOrderStep(h, t_pas, gal_pas[120].x, gal_pas[120].y, gal_pas[120].vx, gal_pas[120].vy, gal_pas[0].x, gal_pas[0].y);
     gal[120].x = nuevo_arreglo_2[1];
     gal[120].y = nuevo_arreglo_2[2];
     gal[120].vx = nuevo_arreglo_2[3];
@@ -242,7 +244,8 @@ void evolucion_dos_galaxias(MASA *gal, int cont ){
   //imprimiendo en un archivo de texto los valores para el primer giga_año.
   FILE *salida;
   salida = fopen("../out/2galaxias_estado1.txt", "w");
-  for(i=0;i<cont;i++){
+  int i=0;
+  for(i;i<cont;i++){
     fprintf(salida, "%d %f %f %f %f\n", gal[i].id, gal[i].x, gal[i].y, gal[i].vx, gal[i].vy);
   }
   fclose(salida);

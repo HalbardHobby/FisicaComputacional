@@ -39,7 +39,7 @@ int main(int argc, char **argv){
   fclose(archivo);
 
   /** Calcular y escribir las condiciones iniciales para las masas en la primer órbita **/ 
-  r = 10; /
+  r = 10;
   delta_ang = (2.0*PI) / 12.0;
 
   archivo = fopen(nombre, "a");
